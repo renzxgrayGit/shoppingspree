@@ -3,31 +3,39 @@
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="/assets/cart.css">
+        <link rel="stylesheet" href="/assets/cartt.css">
         <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
         <title>Catalog Page</title>
     </head>
     <body>
         <header>
-            <h1>My Store</h1>
-            <a href="/items/go_back">Catalog</a>
+            <a href="/items/go_back" id="my_store">My Store</a>
+            <a href="/items/go_back" id="go_back">Catalog</a>
         </header>
         <main>
             <h2>Checkout</h2>
-            <h3>Total: $147</h3>
             <table>
+			<h3>Total: $<?= number_format($total_price, 2) ?></h3>
                 <tr>
                     <th>Item name</th>
                     <th>Quantity</th>
                     <th>Price</th>
                     <th>Action</th>
                 </tr>
-                <tr>
-                    <td>T-shirt</td>
-                    <td>43</td>
-                    <td>$1</td>
-                    <td>x</td>
+<?php           foreach ($cart_contents as $item)
+                {   ?>
+                    <tr>
+                    <td><?= $item['item_name'] ?></td>
+                    <td><?= $item['quantity'] ?></td>
+                    <td>$<?= $item['price'] ?></td>
+                    <td>
+                        <form action="/items/remove_item" method="post">
+                            <input type="hidden" name="cart_id" value="<?= $item['cart_id'] ?>">
+                            <input type="submit" value="Remove" id="delete-button">    
+                        </form>
+                    </td>
                 </tr>
+<?php           }    ?>
             </table>
         </main>
     </body>
