@@ -1,0 +1,73 @@
+body {
+    background-color: #333; /* Dark background color for night mode */
+    color: #fff; /* Light text color for night mode */
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+header {
+background-color: #222; /* Darker background for header */
+padding: 10px 20px;
+}
+
+h1,	a {
+    display: inline-block; /* Display h1 and a elements in one line */
+    vertical-align: middle; /* Align elements vertically */
+    margin: 0; /* Remove any default margins */
+}
+
+a {
+    position: relative;
+    left: 1200px;
+    color: #175b98;
+}
+
+main {
+    margin: 20px auto;
+    text-align: center;
+}
+
+.container {
+    display: table;
+    width: 100%;
+    table-layout: fixed; /* Ensures equal width for all columns */
+}
+.column {
+    display: table-cell;
+    vertical-align: top; /* Align content at the top of each cell */
+    padding: 0 10px; /* Add some spacing around the content */
+}
+
+ div {
+    background-color: #444; /* Dark background for product boxes */
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    margin: 10px auto; /* Center divs horizontally */
+    width: calc(33.33% - 20px); /* Adjust width based on the number of columns */
+    box-sizing: border-box; /* Include padding and border in the width calculation */
+}	
+img {
+    max-width: 100%;
+    height: auto;
+}
+h3 {
+    margin: 10px 0;
+    color: #fff; /* Light text color */
+}
+form {
+    margin-top: 10px;
+}
+input[type="number"] {
+    width: 50px;
+    text-align: center;
+}
+input[type="submit"] {
+    background-color: #666; /* Dark button color */
+    color: #fff; /* Light text color for buttons */
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+    border-radius: 5px;
+}

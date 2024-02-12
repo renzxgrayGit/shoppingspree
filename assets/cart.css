@@ -1,0 +1,49 @@
+body {
+    background-color: #333; /* Dark background color for night mode */
+    color: #fff; /* Light text color for night mode */
+    margin: 0;
+    padding: 0;
+    font-family: 'Noto Sans', sans-serif;
+}
+
+header {
+background-color: #222; /* Darker background for header */
+padding: 10px 20px;
+}
+
+h1,	a, h3 {
+    display: inline-block; /* Display h1 and a elements in one line */
+    vertical-align: middle; /* Align elements vertically */
+    margin: 0; /* Remove any default margins */
+}
+
+h2 {
+    margin-left: 100px;
+    display: inline-block; /* Display h1 and a elements in one line */
+    vertical-align: middle; /* Align elements vertically */
+}
+
+h3 {
+    margin-left: 1000px;
+}
+
+a {
+    position: relative;
+    left: 1200px;
+    color: #175b98;
+}
+
+table {
+    border-collapse: collapse;
+    border: 1px solid #fff; /* Border color for table */
+    width: 100%;
+}
+
+th, td {
+    border: 1px solid #888; /* Border color for table cells */
+    padding: 8px;
+}
+
+th {
+    background-color: #06080a; /* Header background color */
+}
