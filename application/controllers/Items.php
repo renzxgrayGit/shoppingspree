@@ -22,9 +22,8 @@ class Items extends CI_Controller
         $this->load->view('catalog', $data);
 	}
 
-	function add_item()
+	function add_item($item_id)
 	{
-		$item_id = $this->input->post('item_id');
         $quantity = $this->input->post('quantity');
         
         // Load the model
@@ -39,7 +38,6 @@ class Items extends CI_Controller
  
 	function cart()
 	{
-		// Load the model
         $this->load->model('item');
 
         // Get the cart contents
@@ -52,24 +50,11 @@ class Items extends CI_Controller
 			$data['total_price'] += $item['price'] * $item['quantity'];
 		}
 
-        // Load the view
         $this->load->view('cart', $data);
 	}
 
-	// Helper function to calculate total price
-	private function calculateTotal($cart_contents) 
-	{
-		$total = 0;
-		foreach ($cart_contents as $item) {
-			$total += $item['quantity'] * $item['price'];
-		}
-		return $total;
-	}
-
-	function remove_item()
+	function remove_item($cart_id)
     {
-		$cart_id = $this->input->post('cart_id');
-    
 		$this->load->model('item');
 		$this->item->remove_from_cart($cart_id);
 	
@@ -78,7 +63,6 @@ class Items extends CI_Controller
 
 	function go_back()
 	{
-		// Redirect back to the catalog page
 		redirect('items');
 	}
 }

@@ -18,8 +18,7 @@
 					<img src="assets/tshirt.png" alt="tshirt">
 					<h3>T-Shirt</h3>
 					<h3>$1</h3>
-					<form action="/items/add_item" method="post">
-						<input type="hidden" name="item_id" value="1">
+					<form action="/items/add_item/1" method="post">	<!-- '1' is the item_id -->
 						<input type="number" id="quantity" name="quantity" min="1" max="999" value="1">
 						<input type="submit" value="Buy">
 					</form>
@@ -28,8 +27,7 @@
 					<img src="assets/cap.png" alt="cap">
 					<h3>Cap</h3>
 					<h3>$2</h3>
-					<form action="/items/add_item" method="post">
-						<input type="hidden" name="item_id" value="2">
+					<form action="/items/add_item/2" method="post">
 						<input type="number" id="quantity" name="quantity" min="1" max="999" value="1">
 						<input type="submit" value="Buy">
 					</form>
@@ -38,8 +36,7 @@
 					<img src="assets/shorts.png" alt="shorts">
 					<h3>Shorts</h3>
 					<h3>$3</h3>
-					<form action="/items/add_item" method="post">
-						<input type="hidden" name="item_id" value="3">
+					<form action="/items/add_item/3" method="post">
 						<input type="number" id="quantity" name="quantity" min="1" max="999" value="1">
 						<input type="submit" value="Buy">
 					</form>

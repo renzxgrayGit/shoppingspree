@@ -4,13 +4,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 class Item extends CI_Model 
 {
     function index()
-    {
-        
-    }
+    {}
 
     function add_to_cart($item_id, $quantity)
     {
-        // Check if the item already exists in the cart
+        // Check if item already exists in the cart
         $query = $this->db->query("SELECT * FROM carts WHERE item_id = $item_id");
         $result = $query->row_array();
 
@@ -18,18 +16,18 @@ class Item extends CI_Model
         {
             // If the item exists, update the quantity
             $new_quantity = $result['quantity'] + $quantity;
-            $sql = "UPDATE carts SET quantity = $new_quantity WHERE item_id = $item_id";
-            $this->db->query($sql);
+            $sql = "UPDATE carts SET quantity = ? WHERE item_id = ?";
+            $this->db->query($sql, array($new_quantity, $item_id));
+
+            /* BELOW! SQL queries without proper sanitization or validation */
+            /* $sql = "UPDATE carts SET quantity = $new_quantity WHERE item_id = $item_id";
+            $this->db->query($sql);  */
         } 
         else 
         {
-            // If the item does not exist, insert a new row
-            $data = array(
-                        'item_id' => $item_id,
-                        'quantity' => $quantity );
-
-            $sql = "INSERT INTO carts (item_id, quantity) VALUES ($item_id, $quantity)";
-            $this->db->query($sql);
+            // If item doesn't exist, insert a new row
+            $sql = "INSERT INTO carts (item_id, quantity) VALUES (?, ?)";
+            $this->db->query($sql, array($item_id, $quantity));
         }
     }
 
