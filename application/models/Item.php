@@ -8,8 +8,12 @@ class Item extends CI_Model
 
     function add_to_cart($item_id, $quantity)
     {
+        /* below is not safe for XSS */
+        /* $query = $this->db->query("SELECT * FROM carts WHERE item_id = $item_id"); */
+
         // Check if item already exists in the cart
-        $query = $this->db->query("SELECT * FROM carts WHERE item_id = $item_id");
+        $sql = "SELECT * FROM carts WHERE item_id = ?";
+        $query = $this->db->query($sql, array($item_id));
         $result = $query->row_array();
 
         if ($result) 
@@ -48,5 +52,12 @@ class Item extends CI_Model
             
         // Execute the SQL query with the cart_id as a parameter
         $this->db->query($sql, array($cart_id));   
+    }
+
+    function remove_all_cart()
+    {
+        // SQL query to delete all from the carts table
+        $sql = "DELETE FROM carts";
+        $this->db->query($sql);
     }
 }

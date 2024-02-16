@@ -4,7 +4,7 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="/assets/cart.css">
-        <link href="https://fonts.googleapis.com/css2?family=Noto+Sans&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Lato&display=swap" rel="stylesheet">
         <title>Carts Page</title>
     </head>
     <body>
@@ -36,6 +36,21 @@
                 </tr>
 <?php           }    ?>
             </table>
+            <h4>Billing info</h4>
+            <form action="/items/submit_order/" method="post">
+                <label for="name">Name:</label>
+                <input type="text" name="name">
+                <label for="address">Address:</label>
+                <input type="text" name="address">
+                <label for="card_number">Card Number:</label>
+                <input type="text" name="card_number">
+                <input type="submit" value="Submit Order">
+            </form>
+            <!-- new added -->
+<?php       if(isset($success_order))
+            {   ?>
+                <p> <?= htmlspecialchars($success_order, ENT_QUOTES, 'UTF-8') ?></p>
+<?php       }   ?>
         </main>
     </body>
 </html>
